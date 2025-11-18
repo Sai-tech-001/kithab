@@ -121,6 +121,91 @@ kithab/
 - GET /api/users/profile - Get user profile (authenticated)
 - PUT /api/users/profile - Update user profile (authenticated)
 
+## Deployment
+
+### Pushing to GitHub
+
+1. Initialize Git repository (if not already done):
+```bash
+git init
+```
+
+2. Add all files to staging:
+```bash
+git add .
+```
+
+3. Commit the changes:
+```bash
+git commit -m "Your commit message"
+```
+
+4. Add remote origin (replace with your repository URL):
+```bash
+git remote add origin https://github.com/your-username/kithab.git
+```
+
+5. Push to GitHub:
+```bash
+git push -u origin main
+```
+
+### Deploying to Netlify
+
+#### Frontend Deployment
+1. Build the frontend for production:
+```bash
+cd frontend
+npm run build
+```
+
+2. The build files will be in the `dist` folder.
+
+3. Go to [Netlify](https://netlify.com) and sign in.
+
+4. Drag and drop the `dist` folder from `frontend/dist` to the Netlify deployment area, or connect your GitHub repository.
+
+5. For GitHub integration:
+   - Click "New site from Git"
+   - Connect your GitHub account
+   - Select the repository
+   - Set build command: `npm run build`
+   - Set publish directory: `frontend/dist`
+   - Click "Deploy site"
+
+6. Your frontend will be live on Netlify's URL.
+
+#### Backend Deployment
+For the backend, you'll need a platform that supports Node.js like Heroku, Railway, or Vercel. Here's an example for Heroku:
+
+1. Install Heroku CLI and login:
+```bash
+heroku login
+```
+
+2. Create a new Heroku app:
+```bash
+heroku create your-app-name
+```
+
+3. Set environment variables in Heroku:
+```bash
+heroku config:set MONGODB_URI=your_mongodb_uri
+heroku config:set JWT_SECRET=your_jwt_secret
+heroku config:set CLOUDINARY_CLOUD_NAME=your_cloudinary_name
+heroku config:set CLOUDINARY_API_KEY=your_cloudinary_api_key
+heroku config:set CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+```
+
+4. Deploy to Heroku:
+```bash
+git push heroku main
+```
+
+5. Your backend will be live on Heroku's URL.
+
+Remember to update your frontend's API base URL to point to the deployed backend URL.
+
 ## Contributing
 
 1. Fork the repository
