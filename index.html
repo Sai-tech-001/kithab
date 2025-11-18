@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kithab - Buy & Sell Second-Hand Books</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .hero-gradient {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .book-card-hover {
+      transition: all 0.3s ease;
+    }
+    .book-card-hover:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <div class="flex-shrink-0">
+          <a href="index.html" class="text-2xl font-bold text-blue-600 flex items-center gap-2">
+            <i class="fas fa-book"></i>
+            Kithab
+          </a>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+          <a href="#categories" class="text-gray-700 hover:text-blue-600 transition">Categories</a>
+          <a href="textbooks.html" class="text-gray-700 hover:text-blue-600 transition">Textbooks</a>
+          <a href="textbooks.html" class="text-gray-700 hover:text-blue-600 transition">Study Materials</a>
+          <a href="sell.html" class="text-gray-700 hover:text-blue-600 transition">Sell Your Book</a>
+          <a href="login.html" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">Login</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center gap-4">
+          <a href="login.html" class="text-blue-600 hover:text-blue-700">
+            <i class="fas fa-user text-xl"></i>
+          </a>
+          <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden pb-4 space-y-2">
+        <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">Home</a>
+        <a href="#categories" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">Categories</a>
+        <a href="textbooks.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">Textbooks</a>
+        <a href="textbooks.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">Study Materials</a>
+        <a href="sell.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">Sell Your Book</a>
+        <a href="login.html" class="block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-gradient text-white py-20 md:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+          Buy & Sell<br>Second-Hand Books
+        </h1>
+        <p class="text-lg md:text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
+          Discover affordable books from around the world. Buy cheap, sell easy!
+        </p>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="max-w-2xl mx-auto">
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input 
+            type="text" 
+            id="search-input"
+            placeholder="Search by book title or author..."
+            class="flex-1 px-6 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          >
+          <button 
+            id="search-btn"
+            class="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-lg font-semibold transition duration-300"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="grid grid-cols-3 gap-4 mt-12 text-center">
+        <div>
+          <p class="text-3xl font-bold">10K+</p>
+          <p class="text-gray-100">Books Available</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold">5K+</p>
+          <p class="text-gray-100">Active Sellers</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold">50K+</p>
+          <p class="text-gray-100">Happy Readers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Books Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Featured Books</h2>
+    <p class="text-gray-600 mb-8">Explore our most popular books</p>
+
+    <div id="books-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Books will be populated by JavaScript -->
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section id="categories" class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Shop by Category</h2>
+      <p class="text-gray-600 mb-8">Browse books by your favorite category</p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        <a href="textbooks.html" data-category="Novel" class="category-card p-6 bg-gradient-to-br from-pink-50 to-pink-100 rounded-lg text-center hover:shadow-lg transition">
+          <i class="fas fa-book text-3xl text-pink-600 mb-3"></i>
+          <p class="font-semibold text-gray-700">Novel</p>
+        </a>
+
+        <a href="textbooks.html" data-category="Story" class="category-card p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg text-center hover:shadow-lg transition">
+          <i class="fas fa-scroll text-3xl text-blue-600 mb-3"></i>
+          <p class="font-semibold text-gray-700">Story</p>
+        </a>
+
+        <a href="textbooks.html" data-category="Autobiography" class="category-card p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-lg text-center hover:shadow-lg transition">
+          <i class="fas fa-feather text-3xl text-green-600 mb-3"></i>
+          <p class="font-semibold text-gray-700">Autobiography</p>
+        </a>
+
+        <a href="textbooks.html" data-category="Fictional" class="category-card p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg text-center hover:shadow-lg transition">
+          <i class="fas fa-wand-magic-sparkles text-3xl text-purple-600 mb-3"></i>
+          <p class="font-semibold text-gray-700">Fictional</p>
+        </a>
+
+        <a href="textbooks.html" data-category="Non-fiction" class="category-card p-6 bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-lg text-center hover:shadow-lg transition">
+          <i class="fas fa-lightbulb text-3xl text-yellow-600 mb-3"></i>
+          <p class="font-semibold text-gray-700">Non-fiction</p>
+        </a>
+
+        <a href="textbooks.html" data-category="Engineering Textbooks" class="category-card p-6 bg-gradient-to-br from-red-50 to-red-100 rounded-lg text-center hover:shadow-lg transition">
+          <i class="fas fa-cog text-3xl text-red-600 mb-3"></i>
+          <p class="font-semibold text-gray-700">Engineering</p>
+        </a>
+
+        <a href="textbooks.html" data-category="Science Textbooks" class="category-card p-6 bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-lg text-center hover:shadow-lg transition">
+          <i class="fas fa-flask text-3xl text-cyan-600 mb-3"></i>
+          <p class="font-semibold text-gray-700">Science</p>
+        </a>
+
+        <a href="textbooks.html" data-category="Commerce Textbooks" class="category-card p-6 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-lg text-center hover:shadow-lg transition">
+          <i class="fas fa-chart-line text-3xl text-indigo-600 mb-3"></i>
+          <p class="font-semibold text-gray-700">Commerce</p>
+        </a>
+
+        <a href="textbooks.html" class="category-card p-6 bg-gradient-to-br from-teal-50 to-teal-100 rounded-lg text-center hover:shadow-lg transition col-span-2 sm:col-span-1">
+          <i class="fas fa-graduation-cap text-3xl text-teal-600 mb-3"></i>
+          <p class="font-semibold text-gray-700">Entrance Exam</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Why Choose Kithab?</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <i class="fas fa-shield-alt text-4xl mb-4"></i>
+          <h3 class="text-xl font-bold mb-2">Secure Transactions</h3>
+          <p class="text-gray-100">100% secure and verified payment methods</p>
+        </div>
+
+        <div class="text-center">
+          <i class="fas fa-shipping-fast text-4xl mb-4"></i>
+          <h3 class="text-xl font-bold mb-2">Fast Delivery</h3>
+          <p class="text-gray-100">Quick shipping to your doorstep</p>
+        </div>
+
+        <div class="text-center">
+          <i class="fas fa-star text-4xl mb-4"></i>
+          <h3 class="text-xl font-bold mb-2">Quality Books</h3>
+          <p class="text-gray-100">Verified books in good condition</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section -->
+  <section class="bg-gray-100 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Have Books to Sell?</h2>
+      <p class="text-gray-600 mb-8 text-lg">Start earning today by selling your old books</p>
+      <a href="sell.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300">
+        Sell Your Books
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h4 class="text-xl font-bold mb-4">Kithab</h4>
+          <p class="text-gray-400">Your trusted platform for buying and selling second-hand books.</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="text-gray-400 space-y-2">
+            <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+            <li><a href="textbooks.html" class="hover:text-white transition">All Books</a></li>
+            <li><a href="sell.html" class="hover:text-white transition">Sell Book</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Categories</h4>
+          <ul class="text-gray-400 space-y-2">
+            <li><a href="#" class="hover:text-white transition">Novels</a></li>
+            <li><a href="#" class="hover:text-white transition">Textbooks</a></li>
+            <li><a href="#" class="hover:text-white transition">Study Materials</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Contact</h4>
+          <ul class="text-gray-400 space-y-2">
+            <li>Email: info@kithab.com</li>
+            <li>Phone: +91 123 456 7890</li>
+            <li class="flex gap-4 mt-4">
+              <a href="#" class="hover:text-white transition"><i class="fab fa-facebook"></i></a>
+              <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+        <p>&copy; 2024 Kithab. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+  <script>
+    // Initialize page with featured books
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.booksData && window.displayBooks) {
+        window.displayBooks(window.booksData.slice(0, 12));
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+    "name": "kithab-mern",
+    "version": "1.0.0",
+    "description": "A complete MERN stack application for buying and selling second-hand books",
+    "main": "backend/server.js",
+    "scripts": {
+        "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install && cd ..",
+        "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+        "dev:backend": "cd backend && npm run dev",
+        "dev:frontend": "cd frontend && npm run dev",
+        "build": "cd backend && npm run build && cd ../frontend && npm run build",
+        "build:backend": "cd backend && npm run build",
+        "build:frontend": "cd frontend && npm run build"
+    },
+    "keywords": [
+        "MERN",
+        "Books",
+        "Marketplace",
+        "Second-hand",
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express"
+    ],
+    "author": "Your Name",
+    "license": "MIT",
+    "devDependencies": {
+        "concurrently": "^8.2.0"
+    }
+}
